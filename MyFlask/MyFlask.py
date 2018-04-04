@@ -1,3 +1,14 @@
+'''
+author: BlueMrD
+time: 2018\4\4
+CSDN: https://blog.csdn.net/Mr_blueD/article/list
+wechat: PiscesDZH
+'''
+
+
+# -*- coding: utf-8 -*-
+
+
 from flask import Flask, render_template, session, redirect, url_for
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
@@ -28,10 +39,10 @@ app.config['MAIL_SERVER'] = 'smtp.qq.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USERNAME'] = '2361018131@qq.com'
-app.config['MAIL_PASSWORD'] = 'apppiqccjubjebcd'
+app.config['MAIL_PASSWORD'] = '授权登录密码'              # 自己qq邮箱中获取
 app.config['FLASKY_MAIL_SUBJECT_PREFIX'] = '[Flasky]'
-app.config['FLASKY_MAIL_SENDER'] = 'Flasky Admin <2361018131@qq.com>'
-app.config['FLASKY_ADMIN'] = '2361018131@qq.com'
+app.config['FLASKY_MAIL_SENDER'] = 'Flasky Admin <你的qq帐号@qq.com>'
+app.config['FLASKY_ADMIN'] = '你的qq帐号@qq.com'
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
@@ -80,7 +91,7 @@ def send_email(to, subject, template, **kwargs):
     # msg.body = render_template(template+ '.txt', **kwargs)
     # msg.html = render_template(template+'.html', **kwargs)
     msg = Message(app.config['FLASKY_MAIL_SUBJECT_PREFIX'] + subject,
-    sender=app.config['MAIL_USERNAME'], recipients=['1227314815@qq.com'])
+    sender=app.config['MAIL_USERNAME'], recipients=['目标qq帐号@qq.com'])
 
     msg.html = render_template(template + '.html', **kwargs)
     # msg.body = render_template(template + '.txt', **kwargs)
@@ -128,22 +139,6 @@ def index():
 
 if __name__ == '__main__':
     manage.run()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
