@@ -18,8 +18,7 @@ from wtforms.validators import DataRequired
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager
-from flask_mail import Mail
-from flask_mail import Message
+from flask_mail import Mail， Message
 from threading import Thread
 from datetime import datetime
 import os
